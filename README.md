@@ -9,8 +9,8 @@ Zu meinem Bedauern musste ich leider feststellen, das es nur bedingt Hilfe im In
 in Blogs, gibt. Sehr geholfen haben mir die Beispiele im Github-Repository des [oxid cookbooks](https://github.com/OXIDCookbook) und natürlich das
 Buch selbst sowie das Oxid-Forum.
 
-Damit der eine oder andere von euch genau soviel Spass an der <u>Entwicklung</u> von Oxid Modulen findet,
-dachte ich mir ein <u>kleines Tutorial</u> zu erstellen um einerseits mein Wissen weiterzugeben sowie eine Wissensbasis
+Damit der eine oder andere von euch genau so viel Spass an der <u>Entwicklung</u> von Oxid Modulen findet,
+dachte ich mir, ein <u>kleines Tutorial</u> zu erstellen, um einerseits mein Wissen weiterzugeben sowie eine Wissensbasis
 aufzubauen. Gerade bei der <u>Modulstruktur</u> sind z.b. bei der Anlage von <u>Übersetzungen</u> verschiedenen Konventionen einzuhalten. Darüberhinaus muss zu Beginn eine **metadata.php** erstellt werden, welche auch nach <u>gewissen Regeln</u> aufgebaut werden muss. Falls ihr noch interessiert sein, möchte ich euch das Tutorial nicht länger vorenthalten. 
 
 Los gehts!
@@ -18,13 +18,13 @@ Los gehts!
 Beschreibung des Moduls bm_articlelist.
 ---
 
-Das Modul **bm_articlelist** erweitert die **sidebar** um eine <u>weitere Box</u>. Diese Box beinhaltet eine <u>limitierte Anzahl</u> an <u>Shop-Artikeln</u>. Wieviele Artikel angezeigt werden sollen, bestimmt im bequem im <u>Backend</u> unter <u>Einstellungen</u>.
-Da ich das Modul für den Einsatz in <u>mehreren Sprachen</u> vorbereiten möchte, befinden sich sowohl für das <u>Frontend</u> als auch für das <u>Backend</u> Language Dateien. Aber dazu später mehr. Um die <u>Artikelbox</u> auch im Frontend für den Kunden ansprechend zu gestalten, entschied ich mich dafür die Artikel, ähnlich wie bei der Box <u>Top of the Shop</u>, mit <u>JQuery</u> zu animieren. 
+Das Modul **bm_articlelist** erweitert die **sidebar** um eine <u>weitere Box</u>. Diese Box beinhaltet eine <u>limitierte Anzahl</u> an <u>Shop-Artikeln</u>. Wieviele Artikel angezeigt werden sollen, bestimmt man bequem im <u>Backend</u> unter <u>Einstellungen</u>.
+Da ich das Modul für den Einsatz in <u>mehreren Sprachen</u> vorbereiten möchte, befinden sich sowohl für das <u>Frontend</u> als auch für das <u>Backend</u> Language Dateien. Aber dazu später mehr. Um die <u>Artikelbox</u> auch im Frontend für den Kunden ansprechend zu gestalten, entschied ich mich dafür, die Artikel, ähnlich wie bei der Box <u>Top of the Shop</u>, mit <u>JQuery</u> zu animieren. 
 
 Schritt 1 :: Erstellung der Modulstruktur
 ---
 
-Da Module in Oxid nach dem <u>MVC-Prinzip</u> erstellt werden, bietet sich natürlich an nach dem **modules/modulnamen** die Ordner models, controllers und views anzulegen. Wie Ihr meinem Modul **bm_articlelist** entnehmen könnt habe ich nach **modules/bm_articlelist** die Ordner controllers und views angelegt. Im folgenden die <u>Orderstruktur</u> meines Moduls:
+Da Module in Oxid nach dem <u>MVC-Prinzip</u> erstellt werden, bietet sich natürlich an nach dem **modules/modulnamen** die Ordner models, controllers und views anzulegen. Wie Ihr meinem Modul **bm_articlelist** entnehmen könnt, habe ich nach **modules/bm_articlelist** die Ordner controllers und views angelegt. Im folgenden die <u>Orderstruktur</u> meines Moduls:
 
 **modules/bm_articlelist/controllers**
 **modules/bm_articlelist/views/admin/de**
@@ -164,14 +164,14 @@ class bm_oxcmp_utils extends bm_oxcmp_utils_parent
 }
 ```
 
-Wenn man <u>diese Klasse</u> kurz überblickt, stellt man fest, dass Sie in *drei Methoden* unterteilt ist. 
+Wenn man <u>diese Klasse</u> grob überblickt, stellt man fest, dass Sie in *drei Methoden* unterteilt ist. 
 
-Die *erste Methode* **init()** initialisiert z.b. die <u>Konfiguations Parameter</u> unseres Backend-Feldes und stellt dies der Klasse über **$this** zur Verfügung.
+Die *erste Methode* **init()** initialisiert z.b. die <u>Konfiguations Parameter</u> unseres Backend-Feldes und stellt dies der Klasse per **$this** zur Verfügung.
 
 Die *zweite Methode* gibt uns, wie der Name **getData()** schon sagt, die Daten zurück. Auf die Erstellung von SQL-Statements möchte ich an dieseser Stelle nicht weiter eingehen. Wie das SQL-Statement schon sagt, werden aus der Tabelle **oxarticles** alle Spalten ausgelesen, diese nach dem Preis (**oxprice**) absteigend (**DESC**) sortiert und mit **LIMIT** auf z.b. 5 Artikel begrenzt. Kurzum wir erhalten eine Liste der fünf teuersten Produkte.
 
 Die *dritte Methode* befasst sich mit dem <u>Rendering</u>, also mit der <u>Übergabe</u> der Daten, an den View, welcher im Modul **bm_articlelist** unter **modules/bm_articlelist/views/blocks/sitebar.tpl** liegt. An dieser Stelle sei angemerkt, dass die Datei **sidebar.tpl ** *im nächsten Schritt* dieses Tutorials erstellt wird. Also keine Sorge.
-Damit in der **sidebar.tpl** auch Daten ankommen, wird mit **addTplParam** einmal die <u>Variable</u> mit der später die Daten in der **sidebar.tpl** anzusprechen sind definiert. Die Daten selbst werden mit `$this->getData()` zurückgegeben.
+Damit in der **sidebar.tpl** auch Daten ankommen, wird mit **addTplParam** einmal die <u>Variable,</u> mit der später die Daten in der **sidebar.tpl** anzusprechen sind, definiert. Die Daten selbst werden mit `$this->getData()` zurückgegeben.
 
 Schritt 4 :: Erstellung der Datei sidebar.tp
 ---
@@ -209,8 +209,8 @@ Schritt 4 :: Erstellung der Datei sidebar.tp
 Nun schenken wir dem **View** unserere Aufmerksamkeit. Wie unschwer zu erkennen ist, handelt es sich hier um HTML-Syntax gepaart z.b. mit einem foreach loop. Damit dies funktioniert beinhaltet Oxid die <u>Template-Engine Smarty</u>.
 Im nachfolgenden möchte ich für ein besseres Verständnis die Datei kurz durchgehen.
 
-Mit `[{oxscript add=""}]` wird <u>Javascript</u> eingebunden. Danach folgt ein <u>Div-Element</u> mit der `class="box`. Diese übernimmt nun automatisch die <u>CSS-Eigenschaften</u> für box. Da das Modul mit <u>Mehrsprachigkeit</u> umgehen soll, verwende ich die <u>oxidspezifische Smarty-Funkition</u> `[{oxmulitlang ident=""}]` und übergebe dieser Platzhalter. Wie und wo diese Platzhalter definiert werden möchte ich später erläutern. Generell erstellen wir eine <u>unordered list</u>. Um  auf die einzelnen Artikel zuzugreifen wird `$article` mit eine foreach Schleife interiert. Danach kann bequem per getter-Methoden auf die Eigenschaften des Artikelobjektes zugegriffen werden. Zum Beispiel gibt `[{$article->getMainLink()}]` die SEO-Url des einzelnen Artikels zurück. Sicherlich ist dem einen oder anderen von Euch der Aufruf `$oView->getCurrency()` aufgefallen. Hier wird auf das Objekt der View-Klasse zugriffen. Diese steht neben `$oViewConf` immer zur Verfügung und hat Zugriff auf den aktuellen Controller. Zum Beispiel könnt ihr euch verschiedene Konfigurationseinstellungen mit 
-`[{assign var="oConf" value=$oViewConf->getConfig()}]` in die Variable `$oConf` holen und dann per `[{$oConf->...}]` auf eine Eigennschaft im Template zugreifen. Zuletzt vielleicht noch eins. Mit `$article->oxarticles__oxtitle->value` wird der Artikeltitel eines Artikelobjektes aufgerufen. Demnach kann man mit der Schreibweise Objekt->Tabelle__Tabellenfeldo->value auf den Wert zugreifen. So weit so gut. Die Hauptbestandteile dieses Moduls sind wir nun durchgegangen. Ach ja, bevor ich es vergesse, mit `[{debug}]` und mit `[{$article|@var_dump}]` könnt ihr in Smarty debuggen bzw. einen var_dump ausführen.
+Mit `[{oxscript add=""}]` wird <u>Javascript</u> eingebunden. Danach folgt ein <u>Div-Element</u> mit der `class="box`. Diese übernimmt nun automatisch die <u>CSS-Eigenschaften</u> für box. Da das Modul mit <u>Mehrsprachigkeit</u> umgehen soll, verwende ich die <u>oxidspezifische Smarty-Funkition</u> `[{oxmulitlang ident=""}]` und übergebe dieser Platzhalter. Wie und wo diese Platzhalter definiert werden, möchte ich später erläutern. Generell erstellen wir eine <u>unordered list</u> mit ul und li Elementen. Um  auf die einzelnen Artikel zuzugreifen wird `$article` mit eine foreach Schleife interiert. Danach kann bequem per getter-Methoden auf die Eigenschaften des Artikelobjektes zugegriffen werden. Zum Beispiel gibt `[{$article->getMainLink()}]` die SEO-Url des einzelnen Artikels zurück. Sicherlich ist dem einen oder anderen von Euch der Aufruf `$oView->getCurrency()` aufgefallen. Hier wird auf das Objekt der View-Klasse zugriffen. Diese steht neben `$oViewConf` immer zur Verfügung und hat Zugriff auf den aktuellen Controller. Zum Beispiel könnt ihr euch verschiedene Konfigurationseinstellungen mit 
+`[{assign var="oConf" value=$oViewConf->getConfig()}]` in die Variable `$oConf` holen und dann per `[{$oConf->...}]` auf eine Eigennschaft im Template zugreifen. Zuletzt vielleicht noch eins. Mit `$article->oxarticles__oxtitle->value` wird der Artikeltitel eines Artikelobjektes aufgerufen. Demnach kann man mit der Schreibweise `Objekt->Tabelle__Tabellenfeldo->value` auf den Wert zugreifen. So weit so gut. Die Hauptbestandteile dieses Moduls sind wir nun durchgegangen. Ach ja, bevor ich es vergesse, mit `[{debug}]` und mit `[{$article|@var_dump}]` könnt ihr in Smarty debuggen bzw. einen var_dump ausführen.
 
 Schritt 5 :: Erstellung der Dateien für Überssetzugen
 ---
