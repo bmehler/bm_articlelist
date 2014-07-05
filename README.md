@@ -1,6 +1,5 @@
 Oxid Modul :: bm_articlelist
 ============================
----
 
 Mit diesem Modul könnt Ihr die <u>Sidebar eures Shops</U> erweitern.
 
