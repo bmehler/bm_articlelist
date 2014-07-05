@@ -27,8 +27,11 @@ Schritt 1 :: Erstellung der Modulstruktur
 Da Module in Oxid nach dem <u>MVC-Prinzip</u> erstellt werden, bietet sich natürlich an nach dem **modules/modulnamen** die Ordner models, controllers und views anzulegen. Wie Ihr meinem Modul **bm_articlelist** entnehmen könnt, habe ich nach **modules/bm_articlelist** die Ordner controllers und views angelegt. Im folgenden die <u>Orderstruktur</u> meines Moduls:
 
 **modules/bm_articlelist/controllers**
+
 **modules/bm_articlelist/views/admin/de**
+
 **modules/bm_articlelist/views/blocks**
+
 **modules/bm_articlelist/translations/de**
 
 Darüberhinaus befinden sich *unter:*
