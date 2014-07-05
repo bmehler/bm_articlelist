@@ -211,11 +211,47 @@ Schritt 4 :: Erstellung der Datei sidebar.tp
 </div>
 ```
 
-Nun schenken wir dem **View** unserere Aufmerksamkeit. Wie unschwer zu erkennen ist, handelt es sich hier um HTML-Syntax gepaart z.b. mit einem foreach loop. Damit dies funktioniert beinhaltet Oxid die <u>Template-Engine Smarty</u>.
-Im nachfolgenden möchte ich für ein besseres Verständnis die Datei kurz durchgehen.
+Nun schenken wir dem **View** unserere Aufmerksamkeit. Wie unschwer zu erkennen ist, handelt es sich hier um HTML-Syntax gepaart z.b. mit einem foreach loop. Damit dies funktioniert, beinhaltet Oxid die <u>Template-Engine Smarty</u>.
+Im nachfolgenden möchte ich, für ein besseres Verständnis, die Datei kurz durchgehen.
 
 Mit `[{oxscript add=""}]` wird <u>Javascript</u> eingebunden. Danach folgt ein <u>Div-Element</u> mit der `class="box`. Diese übernimmt nun automatisch die <u>CSS-Eigenschaften</u> für box. Da das Modul mit <u>Mehrsprachigkeit</u> umgehen soll, verwende ich die <u>oxidspezifische Smarty-Funkition</u> `[{oxmulitlang ident=""}]` und übergebe dieser Platzhalter. Wie und wo diese Platzhalter definiert werden, möchte ich später erläutern. Generell erstellen wir eine <u>unordered list</u> mit ul und li Elementen. Um  auf die einzelnen Artikel zuzugreifen wird `$article` mit eine foreach Schleife interiert. Danach kann bequem per getter-Methoden auf die Eigenschaften des Artikelobjektes zugegriffen werden. Zum Beispiel gibt `[{$article->getMainLink()}]` die SEO-Url des einzelnen Artikels zurück. Sicherlich ist dem einen oder anderen von Euch der Aufruf `$oView->getCurrency()` aufgefallen. Hier wird auf das Objekt der View-Klasse zugriffen. Diese steht neben `$oViewConf` immer zur Verfügung und hat Zugriff auf den aktuellen Controller. Zum Beispiel könnt ihr euch verschiedene Konfigurationseinstellungen mit 
 `[{assign var="oConf" value=$oViewConf->getConfig()}]` in die Variable `$oConf` holen und dann per `[{$oConf->...}]` auf eine Eigennschaft im Template zugreifen. Zuletzt vielleicht noch eins. Mit `$article->oxarticles__oxtitle->value` wird der Artikeltitel eines Artikelobjektes aufgerufen. Demnach kann man mit der Schreibweise `Objekt->Tabelle__Tabellenfeldo->value` auf den Wert zugreifen. So weit so gut. Die Hauptbestandteile dieses Moduls sind wir nun durchgegangen. Ach ja, bevor ich es vergesse, mit `[{debug}]` und mit `[{$article|@var_dump}]` könnt ihr in Smarty debuggen bzw. einen var_dump ausführen.
 
 Schritt 5 :: Erstellung der Dateien für Überssetzugen
 ---
+Nun zum letzten Teil unsres Tutorials, der Mehrsprachigkeit unseres Moduls. Generell wird bei der Oxid Modulentwicklung zwischen Backend und Frontend unterschieden. Nur so viel: Wir benötigen natürlich beides. Zum einen haben wir im Backend ein Formular im Reiter Einstellungen zum anderen haben wir im Frontend die Überschrift unserer Box im Frontend.
+
+Die Spracheinstellungen für das Backend muss im Modul unter **modules/bm_articlelist/views/admin/de** abgelegt werden.
+Ich habe die Datei **modul_options.php** genannt. Im folgenden der Code:
+
+```php
+<?php
+
+/**
+ * Language File for Backend
+ */
+
+$sLangName = "Deutsch";
+$aLang = array(
+    'charset' => 'ISO-8859-15',
+    'SHOP_MODULE_GROUP_main'    => 'Grundeinstellungen',    
+    'SHOP_MODULE_iArticleLimit' => 'maximal angezeigte Einträge',
+);
+```
+Die Spracheinstellungen für das Frontend hingegen müssen im Modul unter **modules/bm_articlelist/translations/de** abgelegt werden. Diese Datei habe ich im Modul **bm_articlelist_lang** genannt. Der Code hierzu:
+
+```php
+<?php
+
+/**
+* Language File for Frontend
+*/
+
+$sLangName = "Deutsch";
+$aLang = array(
+    'charset' => 'utf-8',
+    'ARTICLELIST_TITLE_HEADER1' => 'Auf Ihrem Wunschzettel?',
+    'ARTICLELIST_TITLE_HEADER2' => 'Produkte mit Fun-Garantie!',
+);
+```
+
