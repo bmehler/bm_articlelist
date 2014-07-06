@@ -81,7 +81,7 @@ $aModule = array(
 ```
 
 Die **metadata.php** besteht aus *verschiedenen Abschnitten*, welche ich nachfolgend kurz durchgehen möchte.
-Selbsterklärend ist der *erste Abschnitt* welcher verschiedene Information zur Version oder zum Author beinhaltet.
+Selbsterklärend ist der *erste Abschnitt*, welcher verschiedene Information zur Version oder zum Author beinhaltet.
 
 Danach folgt als Key des assoziativen Arrays der Begriff **extend**, welcher wiederrum einen Array enthält.
 Wie der Name **extend** schon sagt, wird hier eine <u>bestehende Klasse</u> mit einer <u>eigenen Klasse </u>erweitert.
