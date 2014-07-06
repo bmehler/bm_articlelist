@@ -219,7 +219,7 @@ Mit `[{oxscript add=""}]` wird <u>Javascript</u> eingebunden. Danach folgt ein <
 Sicherlich ist dem einen oder anderen von Euch der Aufruf `$oView->getCurrency()` aufgefallen. Hier wird auf das Objekt der View-Klasse zugriffen. Diese steht neben `$oViewConf` immer zur Verfügung und hat Zugriff auf den aktuellen Controller. Zum Beispiel könnt ihr euch verschiedene Konfigurationseinstellungen mit 
 `[{assign var="oConf" value=$oViewConf->getConfig()}]` in die Variable `$oConf` holen und dann per `[{$oConf->...}]` auf eine Eigennschaft im Template zugreifen. 
 
-Zuletzt vielleicht noch eins. Mit `$article->oxarticles__oxtitle->value` wird der Artikeltitel eines Artikelobjektes aufgerufen. Demnach kann man mit der Schreibweise `Objekt->Tabelle__Tabellenfeldo->value` auf den Wert zugreifen. So weit so gut. Die Hauptbestandteile dieses Moduls sind wir nun durchgegangen. Ach ja, bevor ich es vergesse, mit `[{debug}]` und mit `[{$article|@var_dump}]` könnt ihr in Smarty debuggen bzw. einen var_dump ausführen.
+Zuletzt vielleicht noch eins. Mit `$article->oxarticles__oxtitle->value` wird der Artikeltitel eines Artikelobjektes aufgerufen. Demnach kann man mit der Schreibweise `Objekt->Tabelle__Tabellenfeld->value` auf den Wert zugreifen. So weit so gut. Die Hauptbestandteile dieses Moduls sind wir nun durchgegangen. Ach ja, bevor ich es vergesse, mit `[{debug}]` und mit `[{$article|@var_dump}]` könnt ihr in Smarty debuggen bzw. einen var_dump ausführen.
 
 Schritt 5 :: Erstellung der Dateien für Überssetzugen
 ---
