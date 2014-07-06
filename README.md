@@ -132,7 +132,7 @@ class bm_oxcmp_utils extends bm_oxcmp_utils_parent
      * 
      * The SQL Statement contains ORDER BY and DESC as well as a LIMIT.
      * The articles will be ordered by the price column.
-     * Cause of a reversed order of the articles is want DESC is used.
+     * Cause of a reversed order of the articles is wanted DESC is used.
      * The limit is set in the init method ($this->iMaxEntries).
      * A new Class Object of oxarticlelist is created. This will store the articles.
      *
@@ -151,9 +151,9 @@ class bm_oxcmp_utils extends bm_oxcmp_utils_parent
     /**
      * Render the articlelist.
      * 
-     * The template parameter articles stored the $oArticlelist Objects and
-     * will make them accessible in the sidbar.tpl.
-     * In the sidebar.tpl articles Array is assigned to the foreach loop.
+     * The template parameter articles stores the $oArticlelist Objects and
+     * makes them accessible in the sidbar.tpl.
+     * The articles Array is accessible in the sidebar.tpl and will be iterated by a foreach loop.
      *
      * @return object Returns the number of articles.
      */    
@@ -258,4 +258,5 @@ $aLang = array(
     'ARTICLELIST_TITLE_HEADER2' => 'Produkte mit Fun-Garantie!',
 );
 ```
+Das wars fürs erste. Große Freude hätte ich, wenn ich dem einen oder anderen von Euch  mit meinem Tutorial helfen und somit den Einstieg in die Modulentwicklung mit Oxid erleichtern konnte.
 
