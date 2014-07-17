@@ -221,7 +221,7 @@ Sicherlich ist dem einen oder anderen von Euch der Aufruf `$oView->getCurrency()
 
 Zuletzt vielleicht noch eins. Mit `$article->oxarticles__oxtitle->value` wird der Artikeltitel eines Artikelobjektes aufgerufen. Demnach kann man mit der Schreibweise `Objekt->Tabelle__Tabellenfeld->value` auf den Wert zugreifen. So weit so gut. Die Hauptbestandteile dieses Moduls sind wir nun durchgegangen. Ach ja, bevor ich es vergesse, mit `[{debug}]` und mit `[{$article|@var_dump}]` könnt ihr in Smarty debuggen bzw. einen var_dump ausführen.
 
-Schritt 5 :: Erstellung der Dateien für Überssetzugen
+Schritt 5 :: Erstellung der Dateien für die Übersetzungen
 ---
 Nun zum letzten Teil unsres Tutorials, der Mehrsprachigkeit unseres Moduls. Generell wird bei der Oxid Modulentwicklung zwischen Backend und Frontend unterschieden. Nur so viel: Wir benötigen natürlich beides. Zum einen haben wir im Backend ein Formular im Reiter Einstellungen zum anderen haben wir im Frontend die Überschrift unserer Box im Frontend.
 
